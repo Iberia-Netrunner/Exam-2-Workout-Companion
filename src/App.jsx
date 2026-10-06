@@ -42,20 +42,22 @@ return (
       <h1>Workout Companion</h1>
     </header>
     <section>
-     <WorkoutForm text={text} setText={setText} onAdd={addExercises} />
+     <p>Add your exercises, check them off when done, and remember – consistency is key.</p>
+     <WorkoutForm 
+           text={text} 
+           setText={setText} 
+           onAdd={addExercises} 
+          />
      <ul className="workout-list">
-      {exercises.map((workout) => (
-        <li key={workout.id} className={workout.done ? "workout completed" : "workout"}>
-          <button type="button" onClick={() => toggleDone(workout.id)}>
-            {workout.done ? "Deselect" : "Done"}
-          </button>{" "}
-          {workout.text}{" "}
-          <button type="button" onClick={() => removeExercise(workout.id)}>
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
+       {exercises.map((workout) => (
+         <WorkoutItem 
+           key={workout.id} 
+           workout={workout} 
+           onToggle={toggleDone} 
+           onRemove={removeExercise} 
+         />
+        ))}
+      </ul>
     </section>
   </main>
 );
@@ -77,6 +79,17 @@ function WorkoutForm(props) {
   );
 }
  
-
-
-
+//Child component that handles single task
+function WorkoutItem(props) {
+  return (
+    <li className={props.workout.done ? "workout completed" : "workout"}>
+      <button type="button" onClick={() => props.onToggle(props.workout.id)}>
+        {props.workout.done ? "Undone" : "Done"}
+      </button>{" "}
+      {props.workout.text}{" "}
+      <button type="button" onClick={() => props.onRemove(props.workout.id)}>
+        Delete
+      </button>
+    </li>
+  );
+}

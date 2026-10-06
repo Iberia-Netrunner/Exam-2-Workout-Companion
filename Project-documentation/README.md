@@ -16,10 +16,11 @@ setText kör en state-uppdatering även såkallat omrendering. Och då blir text
 State-uppdatering sker inte i knappen, knappen anropar funktionen men själva omrendering sker när state variabeln kör sin set-uppdatering.
 Så själva setText är uppdatering som talar om för react att det har skett en förändring och omrendering behöver göras.
 
-Jag avnände både AI och Youtube som källa för att få detta förklarat och få en helhetsbild.
+Jag avnände både AI och Youtube som källor för att få detta förklarat och få en helhetsbild.
 
 
 ## Date.now
+
 2026-10-05
 Functionen addExercise.
 Vad ger en ny item i listan ett id? vad är Date.now?
@@ -29,8 +30,8 @@ den är tidsbaserat och gör att ID alltid blir unikt.
      
 
 
-
 ## Kodgranskning/Feedback på AI-kod
+
 2026-10-05
 1. Koden försöker att lägga till en item/element
    men den använder push vilket gör att
