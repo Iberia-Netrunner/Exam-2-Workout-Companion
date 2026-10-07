@@ -39,10 +39,10 @@ function removeExercise (id) {
 return (
   <main>
     <header>
-      <h1>Workout Companion</h1>
+      <h1>Workout To-Do list</h1>
+      <p>Your own Exercise Tracker</p>
     </header>
     <section>
-     <p>Add your exercises, check them off when done, and remember – consistency is key.</p>
      <WorkoutForm 
            text={text} 
            setText={setText} 
@@ -88,7 +88,7 @@ function WorkoutItem(props) {
       </button>{" "}
       {props.workout.text}{" "}
       <button type="button" onClick={() => props.onRemove(props.workout.id)}>
-        Delete
+        Remove
       </button>
     </li>
   );
