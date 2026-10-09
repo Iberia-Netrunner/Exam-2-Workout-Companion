@@ -22,7 +22,7 @@ Jag avnände både AI och Youtube som källor för att få detta förklarat och 
 
 **Centrera workout list**
 Jag fick problem med att få workout objekten i mitten, jag frågade AI och det visade sig att
-<ul> har som standard padding eller margin på vänster sida av ul, 40px. Detta skjuter listan till höger för att det ska finnas plats för punkter. Detta löste jag genom att sätta padding på 0. Då bröt den standard paddingen och listorna hamnade i mitten.
+ul har som standard padding eller margin på vänster sida av ul, 40px. Detta skjuter listan till höger för att det ska finnas plats för punkter. Detta löste jag genom att sätta padding på 0. Då bröt den standard paddingen och listorna hamnade i mitten.
 
 **Date.now**
 2026-10-05
@@ -49,11 +49,11 @@ Man ska inte använda .push direkt på staten för att då känner inte react av
 ## Kodgranskning/Feedback på AI-kod
 
 2026-10-05
-1. Koden försöker att lägga till en item/element
-   men den använder push vilket gör att
-   koden blir mutabel då man ändrar i original arrayen direkt.
-   Detta gör att react inte vet om att det har skett en förändring
-   och då kör den ingen omrendering vilket resulterar i att inget händer.
+Koden försöker att lägga till en item/element
+men den använder push vilket gör att
+koden blir mutabel då man ändrar i original arrayen direkt.
+Detta gör att react inte vet om att det har skett en förändring
+och då kör den ingen omrendering vilket resulterar i att inget händer.
    
 Hur jag hade gjort detta:
 const [todos, setTodos] = useState([
