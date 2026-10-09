@@ -1,19 +1,20 @@
 import { useState } from "react";
 import "./App.css";
+import { Trash } from 'lucide-react';
 
 //Main Component
 function App() {
-  //State-variabel with object
+  //State-variabel array with object
   const [exercises, setExercises] = useState([
     { id: 1, text: "Benchpress 3x10", done: false },
     { id: 2, text: "Pullups 3x10", done: false },
   ]);
   
-  //Statevariabel empty, tracks user input/mirrors.
-  const [text, setText] = useState("");
+//Statevariabel empty, tracks user input/mirrors.
+const [text, setText] = useState("");
 
 //Trimmad text, indatavalidation, spread operator, date.now (unique timebased id)
-function addExercises(e) {
+function addExercises(e) { 
   e.preventDefault();
   const trimmed = text.trim();
   if (!trimmed) return;
@@ -72,7 +73,7 @@ function WorkoutForm(props) {
         type="text"
         value={props.text}
         onChange={(e) => props.setText(e.target.value)}
-        placeholder="Add new exercise"
+        placeholder="Add new exercise..."
       />
       <button type="submit">Add</button>
     </form>
@@ -84,11 +85,13 @@ function WorkoutItem(props) {
   return (
     <li className={props.workout.done ? "workout completed" : "workout"}>
       <button type="button" onClick={() => props.onToggle(props.workout.id)}>
-        {props.workout.done ? "Undone" : "Done"}
+        {props.workout.done ? "Undo" : "Done"}
       </button>{" "}
-      {props.workout.text}{" "}
-      <button type="button" onClick={() => props.onRemove(props.workout.id)}>
-        Remove
+      
+      <span>{props.workout.text}{" "}</span>
+      
+      <button type="button" onClick={() => props.onRemove(props.workout.id)} className="trash-button">
+       <Trash size={17}/> 
       </button>
     </li>
   );
